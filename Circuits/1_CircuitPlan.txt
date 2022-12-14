@@ -1,0 +1,20 @@
+서보모터(HS-645MG) 하나당 no load 일 때 전류가 450mA
+하나당 0.5A 만 잡아도 18개이므로 9A가 된다.
+
+일단 5V를 만들어줘야하기 때문에 regulator가 필요하다.
+7805act라는 linear regulator가 있지만 하나당 1A까지이다.
+그래서 LM2596 switchig regulator를 쓰자. 영끌 3A까지 쓸 수 있다.
+	LM2596 DC-DC 3개를 병렬 연결해야한다
+	switching regulator를 병렬 연결하면 밀고 당기기(?)가 발생해 불안정해진다고 한다.
+	그래서 아예 3개의 regulator에 전원공급을 하는 배터리를 따로 쓰자
+
+배터리
+	model: C112559P-2S
+	Cap: 1300mAh
+	Volt: 7.4V
+	Max charge Volt: 8.4V
+	Min discharge Volt:6V
+	Max discharge current: 13A(★★★★★)
+
+18개이고 최소 첫번째 다리(맨 안쪽)는 속도조절을 위해 멀티 스레딩이 되어야 제어가 편할 것이다.
+보드는 esp-wroom-32를 쓰자
