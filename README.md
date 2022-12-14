@@ -3,7 +3,7 @@ pinocchio UNIST robot club legacy
 ## Introduction
 - 현재 유니스트 석박과정중인 황재박씨가 남겼던 유산이 소실되었다. 고통받는 그의 노고를 기리고자 6족 로봇을 복원했다.
 
-  그러나 이전의 프로젝트에 비해 오로지 HW 부품만 같고, 회로와 펌웨어 및 제어가 달라서 아예 다른 로봇이라고 할 수 있다.
+  그러나 이전의 프로젝트에 비해 HW 부품만 같고, 회로와 펌웨어 및 제어가 달라서 다른 로봇이라고 할 수 있다.
   
   시간이 지남에 따라 기술도 발전했기에, 이 프로젝트의 발전 가능성을 고려해서 몇가지 업그레이드를 했다.
   
@@ -34,8 +34,29 @@ pinocchio UNIST robot club legacy
   Rather than calculating the angle of the servomotor by hand, I created a Unity project to find out the angle of the motor so that I could experiment intuitively.
 
 ## Circuits
-아래의 회로와 조금 달라졌다. PWM핀이 충분해서 ESP32를 보드로 사용했으나 timer가 16개가 있으므로 다리 2개의 제어는 별도로 설정해주어야한다.
+아래의 회로와 조금 달라졌다. PWM핀이 충분해서 ESP32를 보드로 사용했으나 timer가 16개가 있으므로 다리 2개의 제어는 별도로 설정해주어야한다. 그래서 그냥 물리적으로 쇼트를 시켜서 26번과 14번/ 25번과 23번을 같이 제어했다.
 
-그래서 그냥 물리적으로 쇼트를 시켜서 26번과 14번/ 25번과 23번을 같이 제어했다.
+또한 GPIO 34, 35, 36, 39 핀은 인풋용이므로 사용할 수 없었다. 
 
-또한 GPIO 34, 35, 36, 39 핀은 인풋용이므로 사용할 수 없었다.
+그러나 너무 간단하기 때문에 바뀐 회로나 회로도는 따로 첨부하지 않겠다.
+
+The circuit below is slightly different from the actual one. The ESP32 was used as a board because there were enough PWM pins, but since there are 16 timers, the control of the two legs must be set separately. So I just physically shorted it and controlled the 26 and 14 / 25 and 23 together.
+
+Also, GPIO 34, 35, 36, 39 pins are for input and cannot be used.
+<img src="https://raw.githubusercontent.com/sseungh/6-Legged/main/Circuits/2_circuitFront.PNG">
+<img src="https://raw.githubusercontent.com/sseungh/6-Legged/main/Circuits/2_circuitBack.PNG">
+<img src="https://github.com/sseungh/6-Legged/blob/main/Circuits/2_Wiring.PNG">
+
+## Hardward
+모터 위치와 핀 번호이다.
+<img src="https://raw.githubusercontent.com/sseungh/6-Legged/main/Hardware/4_pos.PNG">
+
+영상에서 나타나지 않았으나 모터의 출력은 로봇의 하중을 감당할 수 있다.
+<img src="https://github.com/sseungh/6-Legged/blob/main/Hardware/6_stand_.gif?raw=true">
+<img src="https://github.com/sseungh/6-Legged/blob/main/Hardware/6_walk_.gif?raw=true">
+
+
+## Codes
+- exec0: standing
+- exec2: 4 posed walking
+- exec4: FSM bluetooth control
