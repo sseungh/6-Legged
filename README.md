@@ -1,7 +1,7 @@
 # 6-Legged
 pinocchio UNIST robot club legacy
 ## Introduction
-- 현재 유니스트 석박과정중인 황재박씨가 남겼던 유산이 소실되었다. 그의 노고를 기리고자 6족 로봇을 복원했다.
+- 현재 유니스트 석박과정중인 황재박씨가 남겼던 유산이 소실되었다. 현재 고통받는 그의 노고를 기리고자 6족 로봇을 복원했다.
 
   그러나 이전의 프로젝트에 비해 오로지 HW 부품만 같고, 회로와 펌웨어 및 제어가 달라서 아예 다른 로봇이라고 할 수 있다.
   
@@ -32,3 +32,10 @@ pinocchio UNIST robot club legacy
 
   ### Improvement 3. Simulation
   Rather than calculating the angle of the servomotor by hand, I created a Unity project to find out the angle of the motor so that I could experiment intuitively.
+
+## Circuits
+아래의 회로와 조금 달라졌다. PWM핀이 충분해서 ESP32를 보드로 사용했으나 timer가 16개가 있으므로 다리 2개의 제어는 별도로 설정해주어야한다.
+
+그래서 그냥 물리적으로 쇼트를 시켜서 26번과 14번/ 25번과 23번을 같이 제어했다.
+
+또한 GPIO 34, 35, 36, 39 핀은 인풋용이므로 사용할 수 없었다.
