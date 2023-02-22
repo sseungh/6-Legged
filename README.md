@@ -51,9 +51,9 @@ Also, GPIO 34, 35, 36, 39 pins are for input and cannot be used.
 모터 위치와 핀 번호이다.
 <img src="https://raw.githubusercontent.com/sseungh/6-Legged/main/Hardware/4_pos.PNG">
 
-영상에서 나타나지 않았으나 모터의 출력은 로봇의 하중을 감당할 수 있다.
-<img src="https://github.com/sseungh/6-Legged/blob/main/Hardware/6_stand_.gif?raw=true">
-<img src="https://github.com/sseungh/6-Legged/blob/main/Hardware/6_walk_.gif?raw=true">
+영상에서 보이듯 모터의 출력은 로봇의 하중을 감당할 수 있다.
+<img src="https://raw.githubusercontent.com/sseungh/6-Legged/main/Hardware/standup.gif?raw=true">
+<img src="https://raw.githubusercontent.com/sseungh/6-Legged/main/Hardware/dirchange.gif?raw=true">
 
 
 ## Codes
