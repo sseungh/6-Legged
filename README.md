@@ -60,7 +60,7 @@ Also, GPIO 34, 35, 36, 39 pins are for input and cannot be used.
 - exec0: standing
 - exec2: 4 posed walking
 - exec4: FSM bluetooth control
-
+- exec5: Idle state changed to withstand the load. Back, Turn states implemented
 
 ## Simulation
 너무 단순한 구조이다.
